@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>cadastro</h3>
+    nome: <input type="text"/><br><br>
+    data: <input type="text" id="txtdata" maxlength="10" onkeyup="mask_date()"/><br><br>
+    cep: <input type="text" id="txtcep" onkeyup="mask_cep()"/><br><br>
+    telefone: <input type="text" id="txtfone" maxlength="14" onkeyup="mask_fone()"/><br><br>
+    <input type="button" value="cadastrar">
+</body>
+<script>
+
+    function mask_date(){
+        const n_char = document.getElementById("txtdata").value.length
+        if (n_char == 2){
+            document.getElementById("txtdata").value = document.getElementById("txtdata").value + "/"
+        } else if (n_char == 5){
+            document.getElementById("txtdata").value = document.getElementById("txtdata").value + "/"
+        }
+    }
+
+    function mask_cep(){
+        const n_char = document.getElementById("txtcep").value.length
+        if (n_char == 5){
+            document.getElementById("txtcep").value = document.getElementById("txtcep").value + "-"
+        }
+    }
+
+    function mask_fone(){
+        const n_char = document.getElementById("txtfone").value.length
+        if (n_char == 2){
+            document.getElementById("txtfone").value = "(" + document.getElementById("txtfone").value + ") "
+        } else if (n_char == 9){
+            document.getElementById("txtfone").value = document.getElementById("txtfone").value + "-"
+        }
+    }
+
+</script>
+</html>
